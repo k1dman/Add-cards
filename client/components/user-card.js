@@ -1,10 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-// import Box from '@material-ui/core/Box'
 import Avatar from '@material-ui/core/Avatar'
 import CardHeader from '@material-ui/core/CardHeader'
-// import teal from '@material-ui/core/colors/teal'
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({

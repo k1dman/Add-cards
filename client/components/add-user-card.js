@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import Typography from '@material-ui/core/Typography'
 import { toggleCreateUsersModal } from '../redux/reducers/ui'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     width: 305,
@@ -17,27 +17,6 @@ const useStyles = makeStyles((theme) => ({
     margin: '7px',
     border: '0px',
     backgroundImage: 'url("data:image/svg+xml,%3csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3crect width=\'100%25\' height=\'100%25\' fill=\'none\' stroke=\'%23333\' stroke-width=\'4\' stroke-dasharray=\'10%2c 6\' stroke-dashoffset=\'45\' stroke-linecap=\'butt\'/%3e%3c/svg%3e")'
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'row',
-    margin: 'auto'
-  },
-  content: {
-    flex: 'auto'
-  },
-  cover: {
-    width: 151
-  },
-  controls: {
-    display: 'flex',
-    alignItems: 'center',
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1)
-  },
-  playIcon: {
-    height: 38,
-    width: 38
   }
 }))
 
