@@ -39,7 +39,7 @@ const Home = ({ open, toggle }) => {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <Typography component="h3" variant="h3">
+      <Typography component="h6" variant="h6">
         Создание пользователя
       </Typography>
       <Formik
@@ -51,9 +51,9 @@ const Home = ({ open, toggle }) => {
         validate={(values) => {
           const errors = {}
           if (!values.email) {
-            errors.email = 'Required'
+            errors.email = 'Необходимо заполнить'
           } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = 'Invalid email address'
+            errors.email = 'Некорректный e-mail'
           }
           return errors
         }}
@@ -65,19 +65,7 @@ const Home = ({ open, toggle }) => {
       >
         {({ submitForm, isSubmitting }) => (
           <Form>
-            <Field
-              component={TextField}
-              size="small"
-              fullWidth
-              required
-              defaultValue=""
-              variant="outlined"
-              name="email"
-              type="email"
-              label="Email"
-            />
-            <Box m={2} />
-
+            <Box m={6} />
             <Field
               component={TextField}
               size="small"
@@ -87,7 +75,7 @@ const Home = ({ open, toggle }) => {
               variant="outlined"
               name="firstName"
               type="text"
-              label="First Name"
+              label="Имя"
             />
             <Box m={2} />
 
@@ -100,8 +88,22 @@ const Home = ({ open, toggle }) => {
               variant="outlined"
               name="secondName"
               type="text"
-              label="Second Name"
+              label="Фамилия"
             />
+            <Box m={2} />
+
+            <Field
+              component={TextField}
+              size="small"
+              fullWidth
+              required
+              defaultValue=""
+              variant="outlined"
+              name="email"
+              type="email"
+              label="E-mail"
+            />
+            <Box m={2} />
 
             {isSubmitting && <LinearProgress />}
             <Box m={10} />

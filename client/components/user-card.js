@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card'
 // import Box from '@material-ui/core/Box'
 import Avatar from '@material-ui/core/Avatar'
 import CardHeader from '@material-ui/core/CardHeader'
-import teal from '@material-ui/core/colors/teal'
+// import teal from '@material-ui/core/colors/teal'
 import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme) => ({
@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     margin: '7px',
     boxShadow: '0 3px 3px rgba(0,0,0,0.2)'
   },
+  avatar: {
+backgroundColor: '#2aa5b4'
+  },
   details: {
     display: 'flex',
     flexDirection: 'row'
@@ -22,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
     width: '70px',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: teal[400],
-    color: "#ffffff",
+    backgroundColor: '#f8f9fd',
+    color: '#e3e8ee',
 
     display: 'flex',
     flexDirection: 'row'
@@ -50,24 +53,24 @@ const UserCard = ({ index = 0, firstName, secondName, email }) => {
   const classes = useStyles()
 
   return (
-         <Card variant="outlined" className={classes.root}>
-        <div className={classes.details}>
-          <div className={classes.number}>
-            <Typography component="h4" variant="h4">
-              #{index + 1}
-            </Typography>
-          </div>
-          <CardHeader
-            avatar={
-              <Avatar aria-label="recipe" className={classes.avatar}>
-                {`${firstName.slice(0, 1)}${secondName.slice(0, 1)}`.toUpperCase()}
-              </Avatar>
-            }
-            title={`${firstName} ${secondName}`}
-            subheader={email}
-          />
+    <Card variant="outlined" className={classes.root}>
+      <div className={classes.details}>
+        <div className={classes.number}>
+          <Typography component="h4" variant="h4">
+            #{index + 1}
+          </Typography>
         </div>
-      </Card>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              {`${firstName.slice(0, 1)}${secondName.slice(0, 1)}`.toUpperCase()}
+            </Avatar>
+          }
+          title={`${firstName} ${secondName}`}
+          subheader={email}
+        />
+      </div>
+    </Card>
   )
 }
 

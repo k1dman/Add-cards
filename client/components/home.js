@@ -14,7 +14,7 @@ const Home = () => {
   }
   return (
     <div>
-      <Head title="Hello" />
+      <Head title="Anton Averin" />
 
       <UserList />
       <Modal open={open} toggle={toggle} />
