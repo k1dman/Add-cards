@@ -27,9 +27,8 @@ const config = {
     ]
   },
   entry: {
-    main: './main.js',
-    root: './config/root.js'
-  }, // [('./main.js', './config/root.js')],
+    main: './main.js'
+    }, // [('./main.js', './config/root.js')],
   resolve: {
     alias: {
       d3: 'd3/index.js'
@@ -60,9 +59,8 @@ const config = {
           {
             loader: 'eslint-loader',
             options: {
-              cache: false,
+              cache: false
 
-              cacheIdentifer: eslintCacheIdentifier
             }
           }
         ]
