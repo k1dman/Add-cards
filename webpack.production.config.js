@@ -52,27 +52,17 @@ const config = {
   module: {
     rules: [
       {
-        test: /.html$/,
-        loader: StringReplacePlugin.replace({
-          replacements: [
-            {
-              pattern: /COMMITHASH/gi,
-              replacement() {
-                return gitRevisionPlugin.commithash()
-              }
-            }
-          ]
-        })
-      },
-      {
         enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
+        include: [/client/, /server/],
         loader: [
           {
             loader: 'eslint-loader',
             options: {
-              cache: true
+              cache: false,
+
+              cacheIdentifer: eslintCacheIdentifier
             }
           }
         ]
@@ -80,6 +70,7 @@ const config = {
       {
         test: /\.js$/,
         loaders: ['babel-loader'],
+        include: [/client/, /stories/],
         exclude: /node_modules/
       },
       {
@@ -92,7 +83,7 @@ const config = {
               hmr: process.env.NODE_ENV === 'development'
             }
           },
-          { loader: 'css-loader', options: { sourceMap: false } },
+          { loader: 'css-loader', options: { sourceMap: true } },
           {
             loader: 'postcss-loader'
           }
@@ -114,7 +105,7 @@ const config = {
             }
           },
 
-          { loader: 'css-loader', options: { sourceMap: false } },
+          { loader: 'css-loader', options: { sourceMap: true } },
           {
             loader: 'postcss-loader'
           },
@@ -132,7 +123,7 @@ const config = {
         enforce: 'pre'
       },
       {
-        test: /\.(jpg|png|gif|webp)$/,
+        test: /\.(png|jpg|gif|webp)$/,
         use: [
           {
             loader: 'file-loader'
@@ -140,22 +131,14 @@ const config = {
         ]
       },
       {
-        test: /\.eot$/,
-        use: [
-          {
-            loader: 'file-loader'
-          }
-        ]
+        test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+        use: ['file-loader']
       },
       {
         test: /\.woff(2)$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/'
-            }
+            loader: 'file-loader'
           }
         ]
       },
@@ -163,11 +146,7 @@ const config = {
         test: /\.[ot]tf$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/'
-            }
+            loader: 'file-loader'
           }
         ]
       },
